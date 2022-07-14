@@ -27,7 +27,8 @@ jobs:
           tag=$(git rev-parse --short HEAD)
           docker build \
             -t "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest" \
-            -t "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${tag}"
+            -t "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${tag}" \
+            .
 
       - name: Push
         run: docker push "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
